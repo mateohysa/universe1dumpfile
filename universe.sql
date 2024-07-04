@@ -282,6 +282,11 @@ INSERT INTO public.galaxy VALUES (10, 'Bode''s Galaxy', 'A spiral galaxy in the 
 -- Data for Name: meteor; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.meteor VALUES ('Halley', 4500, 1, 6);
+INSERT INTO public.meteor VALUES ('Shoemaker-Levy 9', 4500, 2, 7);
+INSERT INTO public.meteor VALUES ('Encke', 4500, 3, 8);
+INSERT INTO public.meteor VALUES ('Tempel-Tuttle', 4500, 4, 9);
+INSERT INTO public.meteor VALUES ('Hale-Bopp', 4500, 5, 10);
 
 
 --
@@ -386,7 +391,7 @@ SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 10, true);
 -- Name: meteor_meteor_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.meteor_meteor_id_seq', 5, true);
+SELECT pg_catalog.setval('public.meteor_meteor_id_seq', 10, true);
 
 
 --
@@ -448,6 +453,46 @@ ALTER TABLE ONLY public.planet
 
 ALTER TABLE ONLY public.star
     ADD CONSTRAINT star_pkey PRIMARY KEY (star_id);
+
+
+--
+-- Name: galaxy unique_id; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.galaxy
+    ADD CONSTRAINT unique_id UNIQUE (galaxy_id);
+
+
+--
+-- Name: meteor unique_meteor_id; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.meteor
+    ADD CONSTRAINT unique_meteor_id UNIQUE (meteor_id);
+
+
+--
+-- Name: moon unique_moon_id; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.moon
+    ADD CONSTRAINT unique_moon_id UNIQUE (moon_id);
+
+
+--
+-- Name: planet unique_planet_id; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.planet
+    ADD CONSTRAINT unique_planet_id UNIQUE (planet_id);
+
+
+--
+-- Name: star unique_star_id; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.star
+    ADD CONSTRAINT unique_star_id UNIQUE (star_id);
 
 
 --
